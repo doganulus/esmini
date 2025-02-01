@@ -33,7 +33,7 @@ jobs:
       # libglu1-mesa-dev xorg-dev mesa-utils
 
       - name: CMake Configure - Default
-        run: cmake --preset=ci-ubuntu_release -DUSE_OSG=0 -DUSE_OSI=0 -DUSE_SUMO=0 -DUSE_IMPLOT=0
+        run: cmake --preset=ci-ubuntu_release -DUSE_OSG=0 -DUSE_OSI=0 -DUSE_SUMO=0 -DUSE_IMPLOT=0 -DUSE_GTEST=0
 
       - name: CMake Build
         run: cmake --build build --config Release --target install -j4

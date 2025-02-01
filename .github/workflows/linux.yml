@@ -28,7 +28,7 @@ jobs:
           sudo apt-get -qq update 
           sudo apt-get install -qqy \
             cmake \
-            ninja-build
+            ninja-build \
             libx11-dev libxrandr-dev libxinerama-dev libgl1-mesa-dev libegl1-mesa-dev \
             libglu1-mesa-dev xorg-dev mesa-utils \
             libopenscenegraph-dev

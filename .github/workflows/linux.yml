@@ -32,8 +32,17 @@ jobs:
             ninja-build \
             libx11-dev libxrandr-dev libxinerama-dev libgl1-mesa-dev libegl1-mesa-dev \
             libglu1-mesa-dev xorg-dev mesa-utils \
-            libopenscenegraph-dev \
-            libprotobuf-dev protobuf-compiler
+            libopenscenegraph-dev
+
+      - name: Install protobuf
+        run: |
+          wget https://github.com/protocolbuffers/protobuf/releases/download/v3.15.2/protobuf-all-v3.15.2.tar.gz
+          tar -xzf protobuf-all-v3.15.2.tar.gz
+          cd protobuf-v3.15.2/
+          ./configure --disable-shared CXXFLAGS="-fPIC"
+          make
+          sudo make install
+          sudo ldconfig
 
       - run: |
           git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
@@ -41,9 +50,10 @@ jobs:
           git checkout v3.5.0
           mkdir build
           cd build
-          cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DOSI_INSTALL_LIB_DIR=/usr/local/lib 
+          cmake .. 
           make -j4
           sudo make install
+          sudo mv /usr/local/lib/osi3/* /usr/local/lib
           echo "/usr/local/lib/osi3" | sudo tee /etc/ld.so.conf.d/osi3.conf
           sudo ldconfig
 

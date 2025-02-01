@@ -31,7 +31,7 @@ jobs:
             ninja-build
 
       - name: CMake Configure - Default
-        run: cmake --preset=ci-ubuntu-test-no-external-modules -DCMAKE_BUILD_TYPE=Release
+        run: cmake --preset=ci-ubuntu_release
 
       - name: CMake Build
         run: cmake --build build --config Release --target install -j4

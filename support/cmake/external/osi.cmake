@@ -18,24 +18,12 @@ macro(set_osi_libs)
     elseif(LINUX)
         if(DYN_PROTOBUF)
             set(OSI_LIBRARIES
-                optimized
                 libopen_simulation_interface.so
-                optimized
-                libprotobuf.so
-                debug
-                libopen_simulation_interface.so
-                debug
-                libprotobufd.so)
+                libprotobuf.so)
         else()
             set(OSI_LIBRARIES
-                optimized
                 libopen_simulation_interface_pic.a
-                optimized
-                libprotobuf.a
-                debug
-                libopen_simulation_interface_pic.a
-                debug
-                libprotobufd.a)
+                libprotobuf.a)
         endif()
     elseif(MSVC)
         if(DYN_PROTOBUF)

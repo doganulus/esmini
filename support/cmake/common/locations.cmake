@@ -184,8 +184,7 @@ macro(set_project_library_paths)
         set(EXTERNALS_OSI_LIBRARY_PATH
             ${EXTERNALS_OSI_OS_SPECIFIC_PATH}/lib-dyn)
     else()
-        set(EXTERNALS_OSI_LIBRARY_PATH
-            ${EXTERNALS_OSI_OS_SPECIFIC_PATH}/lib)
+        set(EXTERNALS_OSI_LIBRARY_PATH /usr/local/lib/osi3)
     endif(DYN_PROTOBUF)
 
     set(EXTERNALS_SUMO_LIBRARY_PATH

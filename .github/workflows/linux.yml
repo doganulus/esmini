@@ -31,11 +31,13 @@ jobs:
             ninja-build \
             libx11-dev libxrandr-dev libxinerama-dev libgl1-mesa-dev libegl1-mesa-dev \
             libglu1-mesa-dev xorg-dev mesa-utils \
-            libopenscenegraph-dev
+            libopenscenegraph-dev \
+            libprotobuf-dev protobuf-compiler
 
       - run: |
           git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
           cd open-simulation-interface
+          git checkout v3.5.0
           mkdir build
           cd build
           cmake ..

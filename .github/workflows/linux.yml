@@ -11,9 +11,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    name: Build container images
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}
+      cancel-in-progress: true
 
     steps:
+      - uses: actions/checkout@v4
       - name: Install build dependencies
         run: |
           sudo apt-get -qq update 
@@ -21,11 +30,7 @@ jobs:
             cmake \
             ninja-build
 
-      - uses: actions/checkout@v4
-
       - name: CMake Configure - Default
-        if: runner.os != 'macOS'
-        shell: pwsh
         run: cmake --preset=ci-ubuntu-test-no-external-modules -DCMAKE_BUILD_TYPE=Release
 
       - name: CMake Build

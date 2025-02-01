@@ -40,9 +40,10 @@ jobs:
           git checkout v3.5.0
           mkdir build
           cd build
-          cmake ..
+          cmake .. -DCMAKE_C_FLAGS="-fPIC" -DCMAKE_CXX_FLAGS="-fPIC"
           make -j4
           sudo make install
+          sudo ldconfig
 
       - name: CMake Configure - Default
         run: cmake --preset=ci-ubuntu_release -DUSE_OSG=0 -DUSE_OSI=1 -DUSE_SUMO=0 -DUSE_IMPLOT=0 -DUSE_GTEST=0

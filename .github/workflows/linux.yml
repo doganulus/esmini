@@ -1,0 +1,25 @@
+name: Continuous Integration (Linux)
+
+permissions:
+  contents: write
+
+on:
+  push:
+    paths:
+      - 'CMakeLists.txt'
+      - '.github/workflows/linux.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CMake Configure - Default
+        if: runner.os != 'macOS'
+        shell: pwsh
+        run: cmake --preset=ci-ubuntu-test-no-external-modules -DCMAKE_BUILD_TYPE=Release
+
+      - name: CMake Build
+        run: cmake --build build --config Release --target install -j4

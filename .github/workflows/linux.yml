@@ -14,6 +14,13 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
+      - name: Install build dependencies
+        run: |
+          sudo apt-get -qq update 
+          sudo apt-get install -qqy \
+            cmake \
+            ninja-build
+
       - uses: actions/checkout@v4
 
       - name: CMake Configure - Default

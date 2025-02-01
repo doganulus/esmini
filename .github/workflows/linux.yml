@@ -44,8 +44,7 @@ jobs:
           cmake ..
           make -j4
           sudo make install
-          export LIBRARY_PATH=/usr/local/lib/osi3:${LIBRARY_PATH}
-          export LD_LIBRARY_PATH=/usr/local/lib/osi3:${LD_LIBRARY_PATH}
+          sudo echo "/usr/local/lib/osi3" > /etc/ld.so.conf.d/osi3.conf
           sudo ldconfig
 
       - name: CMake Configure - Default

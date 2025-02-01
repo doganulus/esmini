@@ -41,7 +41,7 @@ jobs:
           git checkout v3.5.0
           mkdir build
           cd build
-          cmake ..
+          cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DOSI_INSTALL_LIB_DIR=/usr/local/lib 
           make -j4
           sudo make install
           echo "/usr/local/lib/osi3" | sudo tee /etc/ld.so.conf.d/osi3.conf

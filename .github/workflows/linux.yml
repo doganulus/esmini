@@ -6,8 +6,9 @@ permissions:
 on:
   push:
     paths:
-      - 'CMakeLists.txt'
       - '.github/workflows/linux.yml'
+      - 'CMakeLists.txt'
+      - 'support/cmake/**'
 
 jobs:
   build:

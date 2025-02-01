@@ -22,7 +22,7 @@ macro(set_osi_libs)
                 libprotobuf.so)
         else()
             set(OSI_LIBRARIES
-                /usr/local/osi3/libopen_simulation_interface_pic.a
+                /usr/local/lib/osi3/libopen_simulation_interface_pic.a
                 libprotobuf.a)
         endif()
     elseif(MSVC)

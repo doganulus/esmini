@@ -33,6 +33,15 @@ jobs:
             libglu1-mesa-dev xorg-dev mesa-utils \
             libopenscenegraph-dev
 
+      - run: |
+          git clone https://github.com/OpenSimulationInterface/open-simulation-interface.git
+          cd open-simulation-interface
+          mkdir build
+          cd build
+          cmake ..
+          make -j4
+          sudo make install
+
       - name: CMake Configure - Default
         run: cmake --preset=ci-ubuntu_release -DUSE_OSG=0 -DUSE_OSI=1 -DUSE_SUMO=0 -DUSE_IMPLOT=0 -DUSE_GTEST=0
 

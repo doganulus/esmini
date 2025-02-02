@@ -53,8 +53,7 @@ jobs:
           cmake .. 
           make -j4
           sudo make install
-          # sudo mv /usr/local/lib/osi3/* /usr/local/lib
-          # echo "/usr/local/lib/osi3" | sudo tee /etc/ld.so.conf.d/osi3.conf
+          sudo mv /usr/local/lib/osi3/* /usr/local/lib
           sudo ldconfig
 
       - name: CMake Configure - Default

@@ -153,8 +153,7 @@ macro(set_project_includes)
     set(EXTERNALS_OSG_INCLUDES
         ${EXTERNALS_OSG_OS_SPECIFIC_PATH}/build/include
         ${EXTERNALS_OSG_OS_SPECIFIC_PATH}/include)
-    set(EXTERNALS_OSI_INCLUDES
-        ${EXTERNALS_OSI_OS_SPECIFIC_PATH}/include)
+    set(EXTERNALS_OSI_INCLUDES /usr/local/include/osi3)
     set(EXTERNALS_SUMO_INCLUDES
         ${EXTERNALS_SUMO_OS_SPECIFIC_PATH}/include)
     set(EXTERNALS_GOOGLETEST_INCLUDES
@@ -185,8 +184,7 @@ macro(set_project_library_paths)
         set(EXTERNALS_OSI_LIBRARY_PATH
             ${EXTERNALS_OSI_OS_SPECIFIC_PATH}/lib-dyn)
     else()
-        set(EXTERNALS_OSI_LIBRARY_PATH
-            ${EXTERNALS_OSI_OS_SPECIFIC_PATH}/lib)
+        set(EXTERNALS_OSI_LIBRARY_PATH /usr/local/lib/osi3)
     endif(DYN_PROTOBUF)
 
     set(EXTERNALS_SUMO_LIBRARY_PATH

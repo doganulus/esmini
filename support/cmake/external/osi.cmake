@@ -18,24 +18,12 @@ macro(set_osi_libs)
     elseif(LINUX)
         if(DYN_PROTOBUF)
             set(OSI_LIBRARIES
-                optimized
-                ${EXTERNALS_OSI_LIBRARY_PATH}/release/libopen_simulation_interface.so
-                optimized
-                ${EXTERNALS_OSI_LIBRARY_PATH}/release/libprotobuf.so
-                debug
-                ${EXTERNALS_OSI_LIBRARY_PATH}/debug/libopen_simulation_interface.so
-                debug
-                ${EXTERNALS_OSI_LIBRARY_PATH}/debug/libprotobufd.so)
+                libopen_simulation_interface.so
+                libprotobuf.so)
         else()
             set(OSI_LIBRARIES
-                optimized
-                ${EXTERNALS_OSI_LIBRARY_PATH}/release/libopen_simulation_interface_pic.a
-                optimized
-                ${EXTERNALS_OSI_LIBRARY_PATH}/release/libprotobuf.a
-                debug
-                ${EXTERNALS_OSI_LIBRARY_PATH}/debug/libopen_simulation_interface_pic.a
-                debug
-                ${EXTERNALS_OSI_LIBRARY_PATH}/debug/libprotobufd.a)
+                libopen_simulation_interface_pic.a
+                libprotobuf.a)
         endif()
     elseif(MSVC)
         if(DYN_PROTOBUF)

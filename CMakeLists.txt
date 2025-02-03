@@ -153,6 +153,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/support/cmake/utils/set_folder.cmake)
 include(${CMAKE_CURRENT_SOURCE_DIR}/support/cmake/cloud/set_cloud_links.cmake)
 set_cloud_links()
 
+if(NOT LINUX)
 include(${CMAKE_CURRENT_SOURCE_DIR}/support/cmake/cloud/download.cmake)
 
 message(STATUS "Downloading dependencies...")
@@ -191,10 +192,13 @@ download(
     ${MODELS_PATH}
     "models"
     "${MODELS_PACKAGE_URL}")
+endif()
+
 
 if(NOT
    (APPLE
-    OR MINGW))
+    OR MINGW
+    OR LINUX))
     download(
         googletest
         ${EXTERNALS_GOOGLETEST_PATH}
@@ -202,7 +206,6 @@ if(NOT
         "*"
         "${GTEST_PACKAGE_URL}")
 endif()
-
 # ############################### Loading external packages ##########################################################
 
 if(USE_GTEST)
